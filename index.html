@@ -290,7 +290,7 @@
                 setInterval(async () => {
                     if (!this.config.supabase_url) return;
                     try {
-                        const res = await fetch('https://web-production-11c76.up.railway.app/api/pull_latest', {
+                        const res = await fetch('https://web-production-11c76.up.railway.app/pull_latest', {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify({ message: "pull", config: this.config })
@@ -322,7 +322,7 @@
             methods: {
                 async syncConfigToBackend() {
                     if (!this.config.supabase_url) return;
-                    try { await fetch('https://web-production-11c76.up.railway.app/api/sync_config', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ message: "sync", config: this.config }) }); } 
+                    try { await fetch('https://web-production-11c76.up.railway.app/sync_config', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ message: "sync", config: this.config }) }); } 
                     catch (e) {}
                 },
                 saveConfig() {
@@ -355,7 +355,7 @@
                     this.lastInteractionTime = Date.now();
 
                     try {
-                        const res = await fetch('https://web-production-11c76.up.railway.app/api/chat', {
+                        const res = await fetch('https://web-production-11c76.up.railway.app/chat', {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify({ message: text, config: this.config })
@@ -407,7 +407,7 @@
                         lastUserIndex = this.messages.length - 1 - lastUserIndex;
                         this.userInput = this.messages[lastUserIndex].content;
                         this.messages.splice(lastUserIndex);
-                        try { await fetch('https://web-production-11c76.up.railway.app/api/undo', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ message: "undo", config: this.config }) }); } 
+                        try { await fetch('https://web-production-11c76.up.railway.app/undo', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ message: "undo", config: this.config }) }); } 
                         catch (e) {}
                     }
                 },
