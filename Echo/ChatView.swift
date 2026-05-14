@@ -20,15 +20,9 @@ struct GatewayWebView: UIViewRepresentable {
         webView.isOpaque = false
         webView.backgroundColor = UIColor(red: 0.055, green: 0.047, blue: 0.039, alpha: 1)
         
-        // Clear cache then load
-        WKWebsiteDataStore.default().removeData(
-            ofTypes: WKWebsiteDataStore.allWebsiteDataTypes(),
-            modifiedSince: .distantPast
-        ) {
-            let ts = Int(Date().timeIntervalSince1970)
-            if let u = URL(string: "\(self.url)?_t=\(ts)") {
-                webView.load(URLRequest(url: u, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData))
-            }
+        let ts = Int(Date().timeIntervalSince1970)
+        if let u = URL(string: "\(url)?_t=\(ts)") {
+            webView.load(URLRequest(url: u, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData))
         }
         return webView
     }
@@ -37,19 +31,16 @@ struct GatewayWebView: UIViewRepresentable {
     
     class Coordinator: NSObject, WKNavigationDelegate {
         func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-            // Inject dark neumorphic CSS override after page loads
             let css = """
             :root, html[data-theme="dark"] {
                 --card: #1a1714 !important;
                 --card-h: #201c18 !important;
                 --nav: #0e0c0a !important;
-                --body-bg: #0e0c0a !important;
                 --bubble-ai: #1a1714 !important;
-                --shadow-out: 3px 3px 8px rgba(0,0,0,0.5), -2px -2px 6px rgba(50,44,36,0.12);
             }
             body { background: #0e0c0a !important; }
             .glass, .glass-sm {
-                background: var(--card) !important;
+                background: #1a1714 !important;
                 backdrop-filter: none !important;
                 -webkit-backdrop-filter: none !important;
                 box-shadow: 3px 3px 8px rgba(0,0,0,0.5), -2px -2px 6px rgba(50,44,36,0.12) !important;
@@ -72,7 +63,8 @@ struct GatewayWebView: UIViewRepresentable {
                 -webkit-backdrop-filter: none !important;
             }
             """
-            let js = "var s=document.createElement('style');s.textContent=`\(css)`;document.head.appendChild(s);"
+            let escaped = css.replacingOccurrences(of: "\\n", with: "").replacingOccurrences(of: "\"", with: "\\\"")
+            let js = "var s=document.createElement('style');s.textContent=\"\(escaped)\";document.head.appendChild(s);"
             webView.evaluateJavaScript(js)
         }
     }
