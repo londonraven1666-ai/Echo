@@ -21,6 +21,7 @@ struct GatewayWebView: UIViewRepresentable {
         webView.isOpaque = false
         webView.backgroundColor = UIColor(red: 0.055, green: 0.047, blue: 0.039, alpha: 1)
         webView.scrollView.contentInsetAdjustmentBehavior = .always
+        webView.allowsBackForwardNavigationGestures = true
         if let u = URL(string: url) {
             webView.load(URLRequest(url: u))
         }
