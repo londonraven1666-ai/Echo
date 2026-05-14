@@ -8,15 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		43301E30B2F4EA537B4F74FE /* EchoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A1BB5FEFE3ABC22360CC77 /* EchoApp.swift */; };
-		527FBB5B07A05B5260687053 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A978B3625C7FD831BB45604 /* ChatView.swift */; };
 		557227E152BE404B24254E93 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84F0FE3190554EEE42C3537 /* ContentView.swift */; };
 		72EC205CCD3C449640BBCBBE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F7CBA5FC830D45CB5F13345 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0F7CBA5FC830D45CB5F13345 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		2042C1C5EE1E0CDC47C60202 /* Echo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Echo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		4A978B3625C7FD831BB45604 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		2042C1C5EE1E0CDC47C60202 /* Echo.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Echo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68A1BB5FEFE3ABC22360CC77 /* EchoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EchoApp.swift; sourceTree = "<group>"; };
 		B84F0FE3190554EEE42C3537 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B8AF93D5E8D1991F2DE20C37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -44,7 +42,6 @@
 			isa = PBXGroup;
 			children = (
 				0F7CBA5FC830D45CB5F13345 /* Assets.xcassets */,
-				4A978B3625C7FD831BB45604 /* ChatView.swift */,
 				B84F0FE3190554EEE42C3537 /* ContentView.swift */,
 				D3AE0AD23F0229465CD75316 /* Echo.entitlements */,
 				68A1BB5FEFE3ABC22360CC77 /* EchoApp.swift */,
@@ -84,6 +81,7 @@
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					A4A666D71B1842B96436BFC2 = {
+						DevelopmentTeam = "";
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -123,7 +121,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				527FBB5B07A05B5260687053 /* ChatView.swift in Sources */,
 				557227E152BE404B24254E93 /* ContentView.swift in Sources */,
 				43301E30B2F4EA537B4F74FE /* EchoApp.swift in Sources */,
 			);
@@ -140,7 +137,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = VHA985NZP4;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Echo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -281,7 +278,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = VHA985NZP4;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Echo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
