@@ -1,28 +1,10 @@
 import SwiftUI
-import WebKit
 
 struct ContentView: View {
     var body: some View {
-        GeometryReader { geo in
-            GatewayWebView(url: "https://altairaquila-hafen.duckdns.org/hafen/")
-                .frame(width: geo.size.width, height: geo.size.height)
-        }
-        .edgesIgnoringSafeArea(.all)
+        ChatView()
+            .preferredColorScheme(.dark)
     }
-}
-
-struct GatewayWebView: UIViewRepresentable {
-    let url: String
-    
-    func makeUIView(context: Context) -> WKWebView {
-        let webView = WKWebView()
-        if let u = URL(string: url) {
-            webView.load(URLRequest(url: u))
-        }
-        return webView
-    }
-    
-    func updateUIView(_ uiView: WKWebView, context: Context) {}
 }
 
 extension Color {
